@@ -27,7 +27,7 @@ pipeline {
         stage('push image'){
             steps{
                 withCredentials([string(credentialsId: 'PASS', variable: 'DOCKER_HUB_PASSWD')]) {
-                    sh 'docker login-u harshraisaxena -p ${DOCKER_HUB_PASSWD}'
+                    sh 'docker login -u harshraisaxena -p ${DOCKER_HUB_PASSWD}'
                     sh 'docker tag myaddressbook harshraisaxena/myaddressbook'
                     sh 'docker push harshraisaxena/myaddressbook'
                 }
